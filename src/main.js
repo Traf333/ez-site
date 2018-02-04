@@ -3,6 +3,9 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import storage from './storage';
+
+window.storage = storage;
 
 Vue.config.productionTip = false;
 
