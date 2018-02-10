@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "build": "node build/build.js",
-    "deploy": "npm run build && cp -r build/* docs/"
+    "deploy": "npm run build && cp -r dist/* docs/"
   },
   "dependencies": {
     "jquery": "^3.3.1",
