@@ -1,5 +1,5 @@
 {
-  "name": "g-sheet",
+  "name": "ez-site",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "",
@@ -10,7 +10,8 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "deploy": "build && cp -r build/* docs/"
   },
   "dependencies": {
     "jquery": "^3.3.1",

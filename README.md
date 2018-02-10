@@ -1,6 +1,6 @@
-# g-sheet
+# EZ-site
 
-> A Vue.js project
+> A Vue.js project to dynamicly build serverless websites
 
 ## Build Setup
 
