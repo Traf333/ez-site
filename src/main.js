@@ -6,13 +6,14 @@ import router from './router';
 import storage from './storage';
 
 window.storage = storage;
-
 Vue.config.productionTip = false;
+storage.fetch().then(() => {
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    components: {App},
+    template: '<App/>',
+  });
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>',
-});
+})

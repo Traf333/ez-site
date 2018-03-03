@@ -2,9 +2,11 @@
   <div class="hello">
     <div class="form">
       <input name="title" type="text" placeholder="Title" v-model="title"/> <br>
+      <input name="path" type="text" placeholder="path" v-model="path"/> <br>
+      <br>
       <textarea placeholder="HTML like content" v-model="content"></textarea> <br>
       <span>Content length: {{contentLength}} </span>
-      <button v-on:click="updateStorage">Update</button>
+      <button v-on:click="create">Create</button>
     </div>
     <div class="html-output">
       <h1>{{ title }}</h1>
@@ -15,41 +17,34 @@
 </template>
 
 <script>
-
   export default {
-    name: 'HelloWorld',
+    name: "new-page",
     data() {
-      const {title, content} = storage.data;
-
       return {
-        msg: 'Test app demo',
-        title,
-        content
-      };
+        title: 'A',
+        path: 'B',
+        content: 'C'
+      }
+
     },
     methods: {
-      updateStorage() {
-        const {title, content} = this;
-        storage.update({title, content});
+      create() {
+        const {title, path, content} = this;
+        storage.data.pages.push({title, path, content});
+        storage.sync()
+        this.$router.push({path})
       }
     },
     computed: {
       contentLength() {
         return this.content ? this.content.length : 0;
       }
-    },
-    created() {
-      storage.fetch().then(data => {
-        this.content = data.content
-        this.title = data.title
-      })
-
     }
-  };
+  }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
   h1, h2 {
     font-weight: normal;
   }
